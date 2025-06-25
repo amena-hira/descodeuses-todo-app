@@ -1,0 +1,15 @@
+*{
+    margin: 0 auto;
+}
+.img-profile{
+    width: 180px;
+    
+}
+.img-profile img{
+    width: 100%;
+    border-radius: 50%;
+}
+h2, p{
+    text-align: center;
+    padding: 0.5em 0;
+}

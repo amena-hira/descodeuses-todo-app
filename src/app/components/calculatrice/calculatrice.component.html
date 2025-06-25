@@ -1,0 +1,21 @@
+<div class="flex flex-row m-4">
+    <div class="grid grid-cols-3 gap-4">
+        @for (nombre of nombres; track nombre) {
+            <div>
+                <button mat-raised-button>{{nombre}}</button>
+            </div>
+        }
+        <div class="col-span-2">
+            <button mat-raised-button class="w-full">=</button>
+        </div>
+
+    </div>
+    <div class="grid grid-cols-1 gap-4 ml-4">
+        @for (operator of operators; track operator) {
+            <div>
+                <button mat-raised-button>{{operator}}</button>
+            </div>
+        }
+    </div>
+
+</div>

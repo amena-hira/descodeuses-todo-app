@@ -1,0 +1,53 @@
+<div id="full-cover-background" class="h-full bg-gray-100 flex items-center justify-center">
+    <div id="centered-block" class="bg-white max-w-sm p-6 rounded-xl shadow-md">
+        <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+            <h2>Sign Up</h2>
+            <div id="nom-container">
+                <mat-form-field>
+                    <mat-label>Nom</mat-label>
+                    <input matInput formControlName="nom" type="text" placeholder="Nom">
+                </mat-form-field>
+            </div>
+            <div id="prenom-container">
+                <mat-form-field>
+                    <mat-label>Prenom</mat-label>
+                    <input matInput formControlName="prenom" type="text">
+                </mat-form-field>
+            </div>
+            <!-- <div id="genre-container">
+                <mat-form-field>
+                    <mat-label>Genre</mat-label>
+                    <mat-select formControlName="gen">
+                        <mat-option value="femme">Femme</mat-option>
+                        <mat-option value="homme">Homme</mat-option>
+                    </mat-select>
+                    
+                </mat-form-field>
+            </div> -->
+            <div id="genre-container">
+                <mat-form-field>
+                    <mat-label>Genre</mat-label>
+                    <mat-select>
+                        @for (gen of genre; track gen) {
+                            <mat-option [value]="gen.value">{{gen.text}}</mat-option>
+                        }
+                    </mat-select>
+                    
+                </mat-form-field>
+            </div>
+            <div id="nom_utilisateur">
+                <mat-form-field>
+                    <mat-label>Nom de utilisateur</mat-label>
+                    <input matInput formControlName="nom_utilisateur" type="text">
+                </mat-form-field>
+            </div>
+            <div id="password">
+                <mat-form-field>
+                    <mat-label>Password</mat-label>
+                    <input matInput formControlName="password" type="password" >
+                </mat-form-field>
+            </div>
+            <button mat-flat-button class="w-full" type="submit">Se connecter</button>
+        </form>
+    </div>
+</div>

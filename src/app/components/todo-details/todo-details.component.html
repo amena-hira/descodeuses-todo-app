@@ -1,0 +1,63 @@
+@if(formGroup!=null){
+<div class="flex justify-center p-5">
+  <mat-card appearance="outlined">
+    <mat-card-header class="mb-3">
+      <mat-card-title>Edit Todo</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+        <div id="title-container">
+          <mat-form-field class="w-60">
+            <mat-label>Title</mat-label>
+            <!-- formControlName = 1er parametre de updateForm -->
+            <input
+              [value]="todo.title"
+              matInput
+              formControlName="title"
+              type="text"
+              placeholder="Title"
+            />
+          </mat-form-field>
+        </div>
+        <div id="desciption-container">
+          <mat-form-field class="w-60">
+            <mat-label>Description</mat-label>
+            <!-- formControlName = 1er parametre de updateForm -->
+             <textarea [value]="todo.description" formControlName="description" matInput placeholder="Ex. It makes me feel..."></textarea>
+          </mat-form-field>
+        </div>
+        <div id="priority-container">
+          <mat-form-field class="w-60">
+            <mat-label>Priority</mat-label>
+            <mat-select formControlName="priority">
+                @for (item of priority; track item){
+                    <mat-option [value]="item.value">{{item.text}}</mat-option>
+                }
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div id="date-container">
+          <mat-form-field class="w-60">
+            <mat-label>Date</mat-label>
+            <input matInput  [matDatepicker]="picker" formControlName="dueDate" [value]="todo.dueDate"/>
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker> 
+          </mat-form-field>
+        </div>
+        <div id="complete-container">
+          <section class="my-3 mx-0">
+            <mat-checkbox [checked]="todo.completed" class="m-0" formControlName="completed"
+              >Completed</mat-checkbox
+            >
+          </section>
+        </div>
+        <div class="flex space-x-3">
+          <button mat-raised-button type="submit">Save</button>
+          <button mat-button type="button" (click)="onCancel()">Cancel</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+}
