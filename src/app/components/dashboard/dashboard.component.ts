@@ -35,7 +35,7 @@ export class DashboardComponent implements OnInit {
       let today = new Date();
       console.log('date: ', today);
       let countUrgent = 0, countToday = 0, countLate =0;
-      countUrgent = this.todos.filter(c=>c.priority == '1' && new Date(c.dueDate).toDateString() == today.toDateString()).length;
+      countUrgent = this.todos.filter(c=>c.priorite == '1' && new Date(c.dueDate).toDateString() == today.toDateString()).length;
 
       for (const element of this.todos) {
         if (new Date(element.dueDate).toDateString() == today.toDateString()) {

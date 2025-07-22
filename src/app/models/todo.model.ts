@@ -8,6 +8,8 @@ export interface Todo{
     title:string |null;
     description: string |null;
     completed: boolean |null;
-    priority:string | null;
+    priorite:string | null;
     dueDate: string;
+    memberIds:(number | null)[];
+    projetId: number | null;
 }

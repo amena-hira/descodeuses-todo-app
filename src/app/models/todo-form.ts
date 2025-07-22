@@ -5,6 +5,6 @@ export interface TodoForm {
     title: FormControl<string | null>;
     description: FormControl<string | null>;
     completed: FormControl<boolean | null>;
-    priority: FormControl<string | null>;
+    priorite: FormControl<string | null>;
     dueDate: FormControl<string | null>;
 }

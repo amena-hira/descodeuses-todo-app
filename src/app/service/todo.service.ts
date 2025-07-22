@@ -14,7 +14,7 @@ import { map } from 'rxjs';
 })
 export class TodoService {
 
-  private apiURL = 'api/todos';
+  private apiURL = 'http://localhost:8080/api/action/action/postgresql';
 
   //HttpClient pour communiquer avec le API/Backend
   constructor(private http: HttpClient) { }

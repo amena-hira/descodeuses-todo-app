@@ -48,8 +48,10 @@ export class ToDoComponent implements OnInit {
         title: formValue.title, //Seulement title est remplis depuis le formulaire
         description: null,
         completed: false,
-        priority: null,
+        priorite: null,
         dueDate: '',
+        memberIds: [],
+        projetId:null
       };
 
       this.todoService.addTodo(todo).subscribe((data) => {

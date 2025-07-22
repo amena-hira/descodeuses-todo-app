@@ -30,6 +30,9 @@ import { TodoTableComponent } from './components/todo-table/todo-table.component
 import {MatTableModule} from '@angular/material/table';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CalculatriceComponent } from './components/calculatrice/calculatrice.component';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+
 
 @NgModule({
   declarations: [
@@ -64,15 +67,17 @@ import { CalculatriceComponent } from './components/calculatrice/calculatrice.co
     MatSnackBarModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatTableModule
+    MatTableModule,
+    MatChipsModule,
+    MatAutocompleteModule
   ],
   providers: [
     provideHttpClient(),
-    importProvidersFrom([
-      HttpClientInMemoryWebApiModule.forRoot(
-        InMemoryDataService,{delay:200}
-      )
-    ]),
+    // importProvidersFrom([
+    //   HttpClientInMemoryWebApiModule.forRoot(
+    //     InMemoryDataService,{delay:200}
+    //   )
+    // ]),
     provideNativeDateAdapter(),
     // localisation pour afficher en format francais
     { provide: LOCALE_ID, useValue: "fr"}
