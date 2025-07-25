@@ -19,7 +19,7 @@ import { ToDoComponent } from './components/to-do/to-do.component';
 import {MatCardModule} from '@angular/material/card';
 import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api'
 import { InMemoryDataService } from './service/in-memory-data.service';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { UtilisateursComponent } from './components/utilisateurs/utilisateurs.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
@@ -32,6 +32,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CalculatriceComponent } from './components/calculatrice/calculatrice.component';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { authInterceptor } from './auth/auth.interceptpr';
 
 
 @NgModule({
@@ -72,7 +73,11 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     MatAutocompleteModule
   ],
   providers: [
-    provideHttpClient(),
+    provideHttpClient(
+      withInterceptors([
+        authInterceptor
+      ])
+    ),
     // importProvidersFrom([
     //   HttpClientInMemoryWebApiModule.forRoot(
     //     InMemoryDataService,{delay:200}

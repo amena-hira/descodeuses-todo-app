@@ -27,7 +27,7 @@
             <div id="genre-container">
                 <mat-form-field>
                     <mat-label>Genre</mat-label>
-                    <mat-select>
+                    <mat-select formControlName="gen">
                         @for (gen of genre; track gen) {
                             <mat-option [value]="gen.value">{{gen.text}}</mat-option>
                         }
@@ -35,10 +35,10 @@
                     
                 </mat-form-field>
             </div>
-            <div id="nom_utilisateur">
+            <div id="username">
                 <mat-form-field>
                     <mat-label>Nom de utilisateur</mat-label>
-                    <input matInput formControlName="nom_utilisateur" type="text">
+                    <input matInput formControlName="username" type="text">
                 </mat-form-field>
             </div>
             <div id="password">

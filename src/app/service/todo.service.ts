@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Todo } from '../models/todo.model';
 import { map } from 'rxjs';
@@ -16,6 +16,12 @@ export class TodoService {
 
   private apiURL = 'http://localhost:8080/api/action/action/postgresql';
 
+  private token = sessionStorage.getItem('authToken');
+
+  private headers = new HttpHeaders({
+    'Authorization': `Bearer ${this.token}`
+  });
+
   //HttpClient pour communiquer avec le API/Backend
   constructor(private http: HttpClient) { }
 
@@ -30,7 +36,7 @@ export class TodoService {
   //Fetch liste
   getTodos() {
     //HTTP GET sans 2eme parametre parce que il y a pas de body
-    return this.http.get<Todo[]>(this.apiURL);
+    return this.http.get<Todo[]>(this.apiURL,{headers:this.headers});
   }
 
   //R : Read

@@ -51,6 +51,19 @@
             </mat-select>
           </mat-form-field>
         </div>
+        <div id="user-container">
+          <mat-form-field class="w-60">
+            <mat-label>User</mat-label>
+            <!-- formControlName = 1er parametre de updateForm -->
+            <input
+              [value]="username"
+              matInput
+              type="text"
+              placeholder="User"
+              disabled=""
+            />
+          </mat-form-field>
+        </div>
         <div id="title-container">
           <mat-form-field class="w-60">
             <mat-label>Title</mat-label>

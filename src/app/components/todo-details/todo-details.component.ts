@@ -31,6 +31,7 @@ export class TodoDetailsComponent implements OnInit {
     { value: '3', text: '3' },
     { value: '4', text: '4' },
   ];
+  username:any;
 
   // -------Chips---------
   currentFruit = new FormControl('');
@@ -49,6 +50,7 @@ export class TodoDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.username = sessionStorage.getItem("username");
     // je recupere le id de nom et je le converti au nombre
     // pour faire appel au fetch by is du service CRUD
     const id = Number(this.route.snapshot.paramMap.get('id'));

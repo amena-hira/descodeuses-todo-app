@@ -15,10 +15,11 @@ import { MatCheckboxChange } from '@angular/material/checkbox';
 export class ToDoComponent implements OnInit {
   formGroup: FormGroup;
   todos: Todo[] = [];
+  
 
   constructor(private fb: FormBuilder, private todoService: TodoService, private snackbar:MatSnackBar) {
     this.formGroup = this.fb.group({
-      title: ['', [Validators.required]]
+      title: ['', [Validators.required]],
     });
   }
 
@@ -32,6 +33,7 @@ export class ToDoComponent implements OnInit {
 
   fetchTodo() {
     this.todoService.getTodos().subscribe((data) => {
+      console.log("data fetch: ", data);
       this.todos = data;
     });
   }
@@ -51,7 +53,8 @@ export class ToDoComponent implements OnInit {
         priorite: null,
         dueDate: '',
         memberIds: [],
-        projetId:null
+        projetId:null,
+        userId:null
       };
 
       this.todoService.addTodo(todo).subscribe((data) => {
