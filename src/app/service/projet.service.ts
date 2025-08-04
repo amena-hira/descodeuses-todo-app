@@ -7,7 +7,7 @@ import { Projet } from '../models/projets/projets.model';
 })
 export class ProjetService {
 
-  private apiURL = 'http://localhost:8080/api/project';
+  private apiURL = 'environment.apiUrl/api/project';
 
   constructor(private http:HttpClient) { }
 

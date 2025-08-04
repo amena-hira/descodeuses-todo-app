@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Todo } from '../models/todo.model';
 import { map } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 //commande pour creer le fichier:
 //ng g service todo
@@ -14,7 +15,7 @@ import { map } from 'rxjs';
 })
 export class TodoService {
 
-  private apiURL = 'http://localhost:8080/api/action/action/postgresql';
+  private apiURL = environment.apiUrl+'/api/action/action/postgresql';
 
   private token = sessionStorage.getItem('authToken');
 

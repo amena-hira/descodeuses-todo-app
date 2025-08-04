@@ -6,7 +6,7 @@ import { utilisateurs } from '../models/utilisateurs/utilisateurs';
   providedIn: 'root'
 })
 export class UtilisateursService {
-  private apiURL = 'http://localhost:8080/api/contact';
+  private apiURL = 'environment.apiUrl/api/contact';
 
   constructor(private http:HttpClient) { }
 
