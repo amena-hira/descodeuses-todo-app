@@ -1,3 +1,3 @@
 export const environment = {
-    apiUrl : 'https://planit-8smw.onrender.com'
+    apiUrl : 'https://descodeuses-planit.onrender.com'
 }
