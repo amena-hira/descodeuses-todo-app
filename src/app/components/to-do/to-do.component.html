@@ -4,7 +4,7 @@
       <mat-form-field appearance="outline" class="flex-1">
         <input matInput formControlName="title" placeholder="New Todo" />
       </mat-form-field>
-      <button mat-fab id="delete-button">
+      <button mat-fab id="add-button">
         <mat-icon>add</mat-icon>
       </button>
     </div>
@@ -16,7 +16,7 @@
         <div class="flex items-center">
           <mat-checkbox [checked]="item.completed" (change)="onChangeCheck($event, item)"></mat-checkbox>
           <span class="flex-1" [routerLink]="['/to-do/details', item.id]">{{ item.title }}</span>
-          <button mat-icon-button (click)="onDeleteTodo(item.id)"><mat-icon>delete</mat-icon></button>
+          <button mat-icon-button (click)="onDeleteTodo(item.id)" id="delete-button"><mat-icon>delete</mat-icon></button>
         </div>
       </mat-list-item>
       }
