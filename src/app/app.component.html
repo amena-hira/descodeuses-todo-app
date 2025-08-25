@@ -5,23 +5,38 @@
     -->
   <mat-sidenav #sidenav mode="side" fixedInViewport="">
     <mat-nav-list>
-      <a routerLink="/" mat-list-item>Home</a>
+      @for(item of menu; track item.path){ @if (!item.role || (item.role ===
+      'admin' && authService.isAdmin)) {
+      <a [routerLink]="item.path" mat-list-item>
+        {{ item.name }}
+      </a>
+      } }
+      <!-- <a routerLink="/" mat-list-item>Home</a>
       <a routerLink="/to-do" mat-list-item>To-Do</a>
       <a routerLink="/" mat-list-item>Profile</a>
       <a routerLink="/utilisateurs" mat-list-item>Utilisateurs</a>
       <a routerLink="/todo-table" mat-list-item>To-Do Table</a>
-      <a routerLink="/calculatrice" mat-list-item>Calculatrice</a>
+      <a routerLink="/calculatrice" mat-list-item>Calculatrice</a> -->
     </mat-nav-list>
   </mat-sidenav>
 
   <mat-sidenav-content>
     <div class="flex flex-col h-screen">
       <div id="div-toolbar">
-        <mat-toolbar>
-          <button mat-icon-button (click)="sidenav.toggle()">
-            <mat-icon>menu</mat-icon>
-          </button>
-          <span> {{ title }} </span>
+        <mat-toolbar class="flex justify-between content-center !bg-pink-800 !text-white">
+          <div class="flex items-center">
+            <button mat-icon-button class="!text-white" (click)="sidenav.toggle()">
+              <mat-icon>menu</mat-icon>
+            </button>
+            <span> {{ title }} </span>
+          </div>
+          @if(authService.isLogin){
+          <div>
+            <button class="!text-white" mat-icon-button (click)="logout()" aria-label="Logout">
+              <mat-icon>logout</mat-icon>
+            </button>
+          </div>
+          }
         </mat-toolbar>
       </div>
       <!-- flex-1 pour div-router occupe la place qui reste -->

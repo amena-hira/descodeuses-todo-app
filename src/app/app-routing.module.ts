@@ -19,28 +19,28 @@ const routes: Routes = [
     path: 'login', component:LoginComponent
   },
   {
-    path: 'profile', component:ProfileComponent
+    path: 'profile', component:ProfileComponent, canActivate:[authGuard]
   },
   {
     path: 'sign-up', component:SignUpComponent
   },
   {
-    path: 'to-do', component:ToDoComponent
+    path: 'to-do', component:ToDoComponent, canActivate:[authGuard]
   },
   {
-    path: 'utilisateurs', component:UtilisateursComponent
+    path: 'utilisateurs', component:UtilisateursComponent, canActivate:[authGuard]
   },
   {
-    path: 'to-do/details/:id', component:TodoDetailsComponent
+    path: 'to-do/details/:id', component:TodoDetailsComponent, canActivate:[authGuard]
   },
   {
-    path: 'todo-table', component:TodoTableComponent
+    path: 'todo-table', component:TodoTableComponent, canActivate:[authGuard]
   },
   {
     path: '', component:DashboardComponent, canActivate:[authGuard]
   },
   {
-    path: 'calculatrice', component:CalculatriceComponent
+    path: 'calculatrice', component:CalculatriceComponent, canActivate:[authGuard]
   }
   
 ];

@@ -9,17 +9,20 @@ import { environment } from '../../environments/environment';
 })
 export class AuthService {
 
-  private apiUrl = environment.apiUrl+'/auth';
+  private apiUrl = environment.apiUrl + '/auth';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
-  login(payload : any): Observable<any> {
-    return this.http.post(`${this.apiUrl+'/login'}`, payload);
+  login(payload: any): Observable<any> {
+    return this.http.post(`${this.apiUrl + '/login'}`, payload);
   }
 
-  signup(user: utilisateurs):Observable<any>{
-    return this.http.post(`${this.apiUrl+'/signup'}`, user);
+  signup(user: utilisateurs): Observable<any> {
+    return this.http.post(`${this.apiUrl + '/signup'}`, user);
   }
 
-  
+
+
+  isAdmin = false;
+  isLogin = false;
 }

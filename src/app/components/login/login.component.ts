@@ -46,6 +46,9 @@ export class LoginComponent implements OnInit {
         next: (res) => {
           console.log(res);
           sessionStorage.setItem('authToken', res.token);
+          this.authService.isAdmin = res.role == 'ROLE_ADMIN';
+          this.authService.isLogin = true;
+          sessionStorage.setItem('authRole', res.role);
           sessionStorage.setItem('username', this.loginForm.value.username);
           this.route.navigateByUrl('');
         },
