@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from './service/auth.service';
 import { Router } from '@angular/router';
 
@@ -19,13 +19,16 @@ export class AppComponent {
     { name: 'Calculatrice', path: '/calculatrice' },
   ]
   constructor(public authService: AuthService, public route: Router) {
-
   }
 
+  get isLoggedIn(): boolean {
+    return this.authService.isLogin;
+  }
+
+
+
   logout() {
-    sessionStorage.clear(); // or localStorage.clear() — be consistent
-    this.authService.isAdmin = false;
-    this.authService.isLogin =false;
+    this.authService.updateAuthState(); // clears session & resets booleans
     this.route.navigateByUrl('/login'); // or homepage
   }
 }

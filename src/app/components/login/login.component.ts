@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
 
   //'private' avant formBuilder pour pouvoir acceder a la variable
   //en dehors du constructeur
-  constructor(private formBuilder: FormBuilder, private route: Router, public authService: AuthService) {}
+  constructor(private formBuilder: FormBuilder, private route: Router, public authService: AuthService) { }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -45,11 +45,8 @@ export class LoginComponent implements OnInit {
       this.authService.login(credentials).subscribe({
         next: (res) => {
           console.log(res);
-          sessionStorage.setItem('authToken', res.token);
-          this.authService.isAdmin = res.role == 'ROLE_ADMIN';
-          this.authService.isLogin = true;
-          sessionStorage.setItem('authRole', res.role);
-          sessionStorage.setItem('username', this.loginForm.value.username);
+          // save token and update booleans
+          this.authService.updateAuthState(res.token, res.role, credentials.username);
           this.route.navigateByUrl('');
         },
         error: (err) => console.error('Erreur de connexion', err),

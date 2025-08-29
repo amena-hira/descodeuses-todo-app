@@ -23,6 +23,23 @@ export class AuthService {
 
 
 
-  isAdmin = false;
-  isLogin = false;
+  isLogin: boolean = !!sessionStorage.getItem('authToken');
+  isAdmin: boolean = sessionStorage.getItem('authRole') === 'ROLE_ADMIN';
+  updateAuthState(token?: string, role?: string, username?: string) {
+    if (token && role && username) {
+      // store data
+      sessionStorage.setItem('authToken', token);
+      sessionStorage.setItem('authRole', role);
+      sessionStorage.setItem('username', username);
+
+      // update booleans
+      this.isLogin = true;
+      this.isAdmin = role === 'ROLE_ADMIN';
+    } else {
+      // clear data
+      sessionStorage.clear();
+      this.isLogin = false;
+      this.isAdmin = false;
+    }
+  }
 }

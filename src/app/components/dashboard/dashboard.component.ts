@@ -54,7 +54,7 @@ export class DashboardComponent implements OnInit {
       }
 
       // countLate = this.todos.filter(c=>new Date(c.dueDate).toDateString() < today.toDateString()).length;
-      console.log('date of todo: ', new Date(this.todos[3].dueDate));
+      // console.log('date of todo: ', new Date(this.todos[3].dueDate));
 
       this.kpis[0].value = countToday;
       this.kpis[1].value = countLate;

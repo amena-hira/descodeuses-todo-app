@@ -3,7 +3,7 @@
     variable template commence par '#' pour 
     declencher le menu dans la fonction click 
     -->
-  <mat-sidenav #sidenav mode="side" fixedInViewport="">
+  <mat-sidenav #sidenav mode="side" fixedInViewport="" [ngClass]="{ '!hidden': !isLoggedIn }">
     <mat-nav-list>
       @for(item of menu; track item.path){ @if (!item.role || (item.role ===
       'admin' && authService.isAdmin)) {
@@ -22,7 +22,7 @@
 
   <mat-sidenav-content>
     <div class="flex flex-col h-screen">
-      <div id="div-toolbar">
+      <div id="div-toolbar" [ngClass]="{ '!hidden': !isLoggedIn }">
         <mat-toolbar class="flex justify-between content-center !bg-pink-800 !text-white">
           <div class="flex items-center">
             <button mat-icon-button class="!text-white" (click)="sidenav.toggle()">
