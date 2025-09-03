@@ -4,7 +4,7 @@
 >
   <div id="centered-block" class="bg-white max-w-sm py-12 px-6 rounded-xl shadow-md">
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <h2 class="text-center">Connexion ou <a routerLink="/sign-up">Sign Up</a></h2>
+      <h2 class="text-center">Connexion</h2>
       <div id="email-container">
         <mat-form-field>
           <mat-label>Email</mat-label>
@@ -25,5 +25,6 @@
       </div>
       <button mat-flat-button class="w-full" type="submit">Se connecter</button>
     </form>
+    <h5 class="text-center">Haven't you account? <a routerLink="/sign-up">Sign Up</a></h5>
   </div>
 </div>

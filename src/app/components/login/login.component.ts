@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
       const credentials = this.loginForm.value;
       this.authService.login(credentials).subscribe({
         next: (res) => {
-          console.log(res);
+          console.log("after login: ",res);
           // save token and update booleans
           this.authService.updateAuthState(res.token, res.role, credentials.username);
           this.route.navigateByUrl('');
