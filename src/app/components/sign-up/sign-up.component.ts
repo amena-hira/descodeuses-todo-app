@@ -36,7 +36,7 @@ export class SignUpComponent implements OnInit{
       this.authService.signup(this.signUpForm.value).subscribe({
         next: (res) => {
           console.log(res);
-          sessionStorage.setItem('authToken', res.token);
+          this.authService.updateAuthState(res.token, res.role, this.signUpForm.value.username);
           this.route.navigateByUrl('');
         },
         error: (err) => console.error('Erreur de connexion', err),
